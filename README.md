@@ -6,6 +6,13 @@ logstash_ingest_data/にファイルを投稿するだけです。
 echo "Hello ELK" > ./logstash_ingest_data/sample.log
 ```
 
+filebeatを利用する場合は
+
+```bash
+echo "Hello ELK" > ./filebeat_ingest_data/sample.log
+```
+
+
 # 参考リンク
 - [Elasticsearch - Doc](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose)
 - [Kibana - Doc](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-kibana-with-docker)
