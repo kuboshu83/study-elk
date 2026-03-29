@@ -3,6 +3,10 @@ filebeat.inputs:
   id: default-filestream
   paths:
     - ingest_data/*.log
+  parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
 
 
 setup.kibana:
