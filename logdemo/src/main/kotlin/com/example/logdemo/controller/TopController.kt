@@ -11,4 +11,9 @@ class TopController {
     fun topPage(): String {
         return "index"
     }
+
+    @GetMapping("/throw")
+    fun errorPage(): String {
+        throw RuntimeException("アクセスすると必ず例外をスローするページです。")
+    }
 }

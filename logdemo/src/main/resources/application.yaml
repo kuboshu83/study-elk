@@ -3,6 +3,8 @@ spring:
     name: logdemo
 
 logging:
+  level:
+    root: info
   structured:
     format:
       console: ecs
