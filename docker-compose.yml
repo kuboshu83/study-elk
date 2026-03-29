@@ -263,6 +263,8 @@ services:
   app:
     image: org.example.k83/logdemo:0.1.0
     container_name: app
+    volumes:
+      - "./filebeat_ingest_data/:/workspace/logs"
     ports:
       - "8080:8080"
 
