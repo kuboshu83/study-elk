@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: logdemo
+
+logging:
+  level:
+    root: info
+  structured:
+    format:
+      console: ecs
