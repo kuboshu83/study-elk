@@ -12,6 +12,18 @@ filebeatを利用する場合は
 echo "Hello ELK" > ./filebeat_ingest_data/sample.log
 ```
 
+# サンプルアプリのビルド方法
+
+Springのサンプルプログラムは./logdemo/Makefileを使って以下のようにビルドしてください。
+
+
+```bash
+make image
+```
+
+以下のコンテナイメージが生成されます。
+
+- org.example.k83/logdemo:0.1.0
 
 # 参考リンク
 - [Elasticsearch - Doc](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose)

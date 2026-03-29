@@ -1,8 +1,8 @@
 <configuration debug="true">
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{YYYY/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+        <encoder class="co.elastic.logging.logback.EcsEncoder">
+            <serviceName>${APP_NAME:-my-service}</serviceName>
         </encoder>
     </appender>
 
@@ -14,8 +14,8 @@
             <maxHistory>3</maxHistory>
         </rollingPolicy>
 
-        <encoder>
-            <pattern>%d{YYYY/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+        <encoder class="co.elastic.logging.logback.EcsEncoder">
+            <serviceName>${APP_NAME:-my-service}</serviceName>
         </encoder>
     </appender>
 
