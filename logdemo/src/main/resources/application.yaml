@@ -1,3 +1,8 @@
 spring:
   application:
     name: logdemo
+
+logging:
+  structured:
+    format:
+      console: ecs

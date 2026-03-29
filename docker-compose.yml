@@ -259,6 +259,12 @@ services:
       - ELASTIC_HOSTS=https://es01:9200
       - KIBANA_HOSTS=http://kibana:5601
       - LOGSTASH_HOSTS=http://logstash01:9600
+  
+  app:
+    image: org.example.k83/logdemo:0.1.0
+    container_name: app
+    ports:
+      - "8080:8080"
 
 volumes:
   certs:
