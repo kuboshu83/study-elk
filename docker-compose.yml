@@ -264,8 +264,15 @@ services:
     container_name: app
     volumes:
       - "./filebeat_ingest_data/:/workspace/logs"
+  
+  nginx:
+    image: nginx:1.29.7
+    container_name: nginx
     ports:
       - "8080:8080"
+    volumes:
+      - "./reverse-nginx.conf:/etc/nginx/conf.d/reverse.conf:ro"
+  
 
 volumes:
   certs:
