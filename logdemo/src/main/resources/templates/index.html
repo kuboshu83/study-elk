@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>トップページ</title>
 </head>
 <body>
 <h1>トップページ</h1>
-Hello Kotlin
+Hello Kotlin.
+
+This is from <span th:text="${appName}">appName</span>
 </body>
 </html>

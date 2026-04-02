@@ -5,3 +5,6 @@ spring:
 logging:
   level:
     root: info
+
+app:
+  name: ${APP_NAME:-my-service}
