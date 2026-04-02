@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("/")
 class TopController(
-    @Value("app.name") private val appName: String
+    @Value($$"${app.name}") private val appName: String
 ) {
 
     @GetMapping
