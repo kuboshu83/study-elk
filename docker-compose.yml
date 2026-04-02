@@ -259,17 +259,28 @@ services:
       - KIBANA_HOSTS=http://kibana:5601
       - LOGSTASH_HOSTS=http://logstash01:9600
   
-  app:
+  app01:
     image: org.example.k83/logdemo:0.1.0
-    container_name: app
+    container_name: app01
+    environment:
+      - APP_NAME=app01
     volumes:
       - "./filebeat_ingest_data/:/workspace/logs"
   
+  app02:
+    image: org.example.k83/logdemo:0.1.0
+    container_name: app02
+    environment:
+      - APP_NAME=app02
+    volumes:
+      - "./filebeat_ingest_data/:/workspace/logs"
+
   nginx:
     image: nginx:1.29.7
     container_name: nginx
     ports:
       - "8080:8080"
+      - "8081:8081"
     volumes:
       - "./reverse-nginx.conf:/etc/nginx/conf.d/reverse.conf:ro"
   
