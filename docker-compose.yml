@@ -265,7 +265,7 @@ services:
     environment:
       - APP_NAME=app01
     volumes:
-      - "./filebeat_ingest_data/:/workspace/logs"
+      - "./filebeat_ingest_data/app01/:/workspace/logs"
   
   app02:
     image: org.example.k83/logdemo:0.1.0
@@ -273,7 +273,7 @@ services:
     environment:
       - APP_NAME=app02
     volumes:
-      - "./filebeat_ingest_data/:/workspace/logs"
+      - "./filebeat_ingest_data/app02/:/workspace/logs"
 
   nginx:
     image: nginx:1.29.7
@@ -283,6 +283,7 @@ services:
       - "8081:8081"
     volumes:
       - "./reverse-nginx.conf:/etc/nginx/conf.d/reverse.conf:ro"
+      - "./filebeat_ingest_data/nginx/:/var/log/nginx/"
   
 
 volumes:
