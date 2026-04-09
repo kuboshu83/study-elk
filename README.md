@@ -25,8 +25,8 @@ make image
 
 ## 動作確認
 
-es01へはhttp://localhost:8080、es02へはhttp://localhost:8081 にそれぞれアクセスしてください。
-また、InternalServerErrorを発生させるにはhttp://localhost:8080/throwにアクセスしてください。es02の方も同様です。
+es01へは`http://localhost:8080`、es02へは`http://localhost:8081`にそれぞれアクセスしてください。
+また、InternalServerErrorを発生させるには、`http://localhost:8080/throw`にアクセスしてください。es02の方も同様です。
 
 
 
