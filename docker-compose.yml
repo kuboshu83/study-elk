@@ -262,7 +262,7 @@ services:
       - LOGSTASH_HOSTS=http://logstash01:9600
   
   app01:
-    image: org.example.k83/logdemo:0.1.0
+    image: localhost/logdemo:0.1.0
     container_name: app01
     environment:
       - APP_NAME=app01
@@ -270,7 +270,7 @@ services:
       - "./filebeat_ingest_data/app01/:/workspace/logs"
   
   app02:
-    image: org.example.k83/logdemo:0.1.0
+    image: localhost/logdemo:0.1.0
     container_name: app02
     environment:
       - APP_NAME=app02
