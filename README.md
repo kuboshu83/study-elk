@@ -1,21 +1,15 @@
-# ログの登録の仕方
+# 概要
 
-logstash_ingest_data/にファイルを投稿するだけです。
+Elastic Stackを使用してログを取り扱う練習をするためのサンプルです。
+構造はシンプルに２つのアプリとnginxを起動して、そのログをElasticsearchに溜めてKibanaで閲覧可能にします。
 
-```bash
-echo "Hello ELK" > ./logstash_ingest_data/sample.log
-```
+![overview](./figs/overview.png)
 
-filebeatを利用する場合は
+# サンプルの起動方法
 
-```bash
-echo "Hello ELK" > ./filebeat_ingest_data/sample.log
-```
+## アプリのビルド
 
-# サンプルアプリのビルド方法
-
-Springのサンプルプログラムは./logdemo/Makefileを使って以下のようにビルドしてください。
-
+Springのサンプルプログラムは./logdemo/Makefileを使って以下を実行してビルドしてください。
 
 ```bash
 make image
@@ -23,7 +17,19 @@ make image
 
 以下のコンテナイメージが生成されます。
 
-- org.example.k83/logdemo:0.1.0
+- localhost/logdemo:0.1.0
+
+## 環境の起動方法
+
+アプリをビルドしたらpodman compose upでコンテナを起動します。
+
+## 動作確認
+
+es01へはhttp://localhost:8080、es02へはhttp://localhost:8081 にそれぞれアクセスしてください。
+また、InternalServerErrorを発生させるにはhttp://localhost:8080/throwにアクセスしてください。es02の方も同様です。
+
+
+
 
 # 参考リンク
 - [Elasticsearch - Doc](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose)
