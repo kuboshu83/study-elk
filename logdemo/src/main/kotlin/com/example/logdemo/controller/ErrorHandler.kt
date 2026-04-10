@@ -11,7 +11,7 @@ class ErrorHandler {
 
     @ExceptionHandler(RuntimeException::class)
     fun handle(ex: Exception): String {
-        logger.error(ex.message)
+        logger.error("ランタイムエラー発生", ex)
         return "error"
     }
 }
