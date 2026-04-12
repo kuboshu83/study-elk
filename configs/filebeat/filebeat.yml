@@ -8,6 +8,8 @@ filebeat.inputs:
           target: ""
           overwrite_keys: true
 
+processors:
+  - add_host_metadata:
 
 setup.kibana:
   host: ${KIBANA_HOSTS}
