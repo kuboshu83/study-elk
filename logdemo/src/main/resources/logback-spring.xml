@@ -16,6 +16,9 @@
 
         <encoder class="co.elastic.logging.logback.EcsEncoder">
             <serviceName>${APP_NAME:-my-service}</serviceName>
+            <serviceVersion>${APP_VERSION:-v0.0.0}</serviceVersion>
+            <serviceEnvironment>${APP_ENV:-notset}</serviceEnvironment>
+            <serviceNodeName>${HOSTNAME}</serviceNodeName>
         </encoder>
     </appender>
 

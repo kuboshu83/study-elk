@@ -65,6 +65,7 @@ services:
       setup:
         condition: service_healthy
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    hostname: es01
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata01:/usr/share/elasticsearch/data
@@ -108,6 +109,7 @@ services:
     depends_on:
       - es01
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    hostname: es02
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata02:/usr/share/elasticsearch/data
@@ -149,6 +151,7 @@ services:
     depends_on:
       - es02
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    hostname: es03
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata03:/usr/share/elasticsearch/data
@@ -195,6 +198,7 @@ services:
       es03:
         condition: service_healthy
     image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
+    hostname: kibana01
     volumes:
       - certs:/usr/share/kibana/config/certs
       - kibanadata:/usr/share/kibana/data
@@ -230,6 +234,7 @@ services:
       kibana:
         condition: service_healthy
     image: docker.elastic.co/logstash/logstash:${STACK_VERSION}
+    hostname: logstash01
   #  labels:
   #    co.elastic.logs/module: logstash
     user: root
@@ -248,6 +253,7 @@ services:
       es01:
         condition: service_healthy
     image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+    hostname: filebeat01
     user: root
     volumes:
       - certs:/usr/share/filebeat/certs
@@ -262,16 +268,18 @@ services:
       - LOGSTASH_HOSTS=http://logstash01:9600
   
   app01:
-    image: localhost/logdemo:0.1.0
+    image: org.example.k83/logdemo:0.1.0
     container_name: app01
+    hostname: app01
     environment:
       - APP_NAME=app01
     volumes:
       - "./filebeat_ingest_data/app01/:/workspace/logs"
   
   app02:
-    image: localhost/logdemo:0.1.0
+    image: org.example.k83/logdemo:0.1.0
     container_name: app02
+    hostname: app02
     environment:
       - APP_NAME=app02
     volumes:
@@ -280,6 +288,7 @@ services:
   nginx:
     image: nginx:1.29.7
     container_name: nginx
+    hostname: nginx01
     ports:
       - "8080:8080"
       - "8081:8081"
