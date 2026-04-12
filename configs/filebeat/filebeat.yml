@@ -1,12 +1,33 @@
 filebeat.inputs:
 - type: filestream
-  id: default-filestream
+  id: nginx-filestream
   paths:
-    - ingest_data/**/*.log
+    - ingest_data/nginx/*.log
   parsers:
       - ndjson:
           target: ""
           overwrite_keys: true
+  tags: ["nginx"]
+
+- type: filestream
+  id: app01-filestream
+  paths:
+    - ingest_data/app01/*.log
+  parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
+  tags: ["app01"]
+
+- type: filestream
+  id: app02-filestream
+  paths:
+    - ingest_data/app02/*.log
+  parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
+  tags: ["app02"]
 
 processors:
   - add_host_metadata:
