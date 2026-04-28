@@ -1,6 +1,6 @@
 .PHONY:
 build:
-	@$(MAKE) -C logdemo --no-print-directory
+	@$(MAKE) -C logdemo --no-print-directory image
 
 .PHONY:
 clean:
