@@ -7,3 +7,7 @@ image:
 	else \
 		./gradlew clean build bootBuildImage --imageName=$(IMAGE); \
 	fi
+
+.PHONY:
+clean:
+	@rm -rf ./logs
