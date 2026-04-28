@@ -9,3 +9,7 @@ clean:
 	@rm -rf filebeat_ingest_data
 	@rm -rf logstash_ingest_data
 	@$(MAKE) -C $(SPRING_PRO_DIR) --no-print-directory clean
+
+.PHONY:
+rmi:
+	@$(MAKE) -C $(SPRING_PRO_DIR) --no-print-directory rmi
