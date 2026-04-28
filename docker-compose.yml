@@ -286,7 +286,7 @@ services:
       - "./filebeat_ingest_data/app02/:/workspace/logs"
 
   nginx:
-    image: nginx:1.29.7
+    image: nginx:1.29.8
     container_name: nginx
     hostname: nginx01
     ports:
