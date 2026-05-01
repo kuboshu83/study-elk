@@ -38,4 +38,4 @@ setup.kibana:
   password: ${ELASTIC_PASSWORD}
 
 output.logstash:
-  hosts: ["logstash01"]
+  hosts: ["logstash01:5044"]
