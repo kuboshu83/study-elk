@@ -1,0 +1,31 @@
+filebeat.inputs:
+- type: filestream
+  id: app01-filestream
+  paths:
+    - ingest_data/app01/*.log
+  parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
+  tags: ["app01"]
+
+- type: filestream
+  id: app02-filestream
+  paths:
+    - ingest_data/app02/*.log
+  parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
+  tags: ["app02"]
+
+processors:
+  - add_host_metadata:
+
+setup.kibana:
+  host: ${KIBANA_HOSTS}
+  username: ${ELASTIC_USER}
+  password: ${ELASTIC_PASSWORD}
+
+output.logstash:
+  hosts: ["logstash01:5044"]
