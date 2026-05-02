@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: filestream
+  id: nginx-filestream
+  paths:
+    - ingest_data/nginx/*.log
+  parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
+  tags: ["nginx"]
+
+processors:
+  - add_host_metadata:
+
+setup.kibana:
+  host: ${KIBANA_HOSTS}
+  username: ${ELASTIC_USER}
+  password: ${ELASTIC_PASSWORD}
+
+output.logstash:
+  hosts: ["logstash01:5044"]
