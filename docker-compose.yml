@@ -242,7 +242,10 @@ services:
       - certs:/usr/share/logstash/certs
       - logstashdata01:/usr/share/logstash/data
       - "./configs/logstash/pipelines/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro"
+      - "./configs/logstash/pipelines/nginx-logstash.conf:/usr/share/logstash/pipeline/nginx-logstash.conf:ro"
+      - "./configs/logstash/pipelines/app-logstash.conf:/usr/share/logstash/pipeline/app-logstash.conf:ro"
       - "./configs/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml"
+      - "./configs/logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml"
     environment:
       - xpack.monitoring.enabled=false
       - ELASTIC_USER=${ELASTIC_USER}
