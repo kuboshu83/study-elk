@@ -241,8 +241,8 @@ services:
     volumes:
       - certs:/usr/share/logstash/certs
       - logstashdata01:/usr/share/logstash/data
-      - "./configs/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro"
-      - "./configs/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml:ro"
+      - "./configs/logstash/pipelines/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro"
+      - "./configs/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml"
     environment:
       - xpack.monitoring.enabled=false
       - ELASTIC_USER=${ELASTIC_USER}
